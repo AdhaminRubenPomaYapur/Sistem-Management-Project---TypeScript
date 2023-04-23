@@ -1,0 +1,37 @@
+[
+    {
+        "uid": "1",
+        "name": "Adhamin Ruben",
+        "lastname": "Poma Yapur",
+        "age": 21,
+        "status": true
+    },
+    {
+        "uid": "2",
+        "name": "Oscar Nicolas",
+        "lastname": "Landivar Selzur",
+        "age": 22,
+        "status": true
+    },
+    {
+        "uid": "3",
+        "name": "Juan",
+        "lastname": "Gianella Blanco",
+        "age": 23,
+        "status": true
+    },
+    {
+        "uid": "4",
+        "name": "Leonardo",
+        "lastname": "Callau Rodriguez",
+        "age": 20,
+        "status": true
+    },
+    {
+        "uid": "5",
+        "name": "Jose Andres",
+        "lastname": "Hurtado Vasquez",
+        "age": 23,
+        "status": true
+    }
+]

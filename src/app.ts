@@ -1,2 +1,6 @@
 import 'dotenv/config';
-console.log(process.env.PORT)
+import { Server } from './server';
+
+const server = new Server();
+
+server.listen();
