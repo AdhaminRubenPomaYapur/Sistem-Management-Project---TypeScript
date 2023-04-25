@@ -1,12 +1,12 @@
 import { v4 as uuid } from "uuid";
-import { PersonEntity, RegisterPerson } from "./person.entity";
+import { RegisterPerson } from "../interfaces/person.interface";
 
-export class PersonValue implements PersonEntity {
-    uid      : string;
-    name     : string;
-    lastname : string;
-    age      : number;
-    status   : boolean;
+export class Person {
+    public uid      : string;
+    public name     : string;
+    public lastname : string;
+    public age      : number;
+    public status   : boolean;
 
     constructor({name, lastname, age}: RegisterPerson) {
         this.uid      = uuid();

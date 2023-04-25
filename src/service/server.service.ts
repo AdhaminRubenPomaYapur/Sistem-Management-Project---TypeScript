@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { routerPerson } from './person/infraestructure/routes/person';
-import dbInitMongo from './person/infraestructure/config/mongodb';
+import { routerPerson } from '../person/infraestructure/routes/person';
+import dbInitMongo from '../config/mongodb';
 
 export class Server {
 

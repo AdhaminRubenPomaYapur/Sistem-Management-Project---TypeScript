@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { PersonEntity } from "../../domain/person.entity";
+import { PersonInterface } from "../../../domain/interfaces/person.interface";
 
-const PersonSchema = new Schema<PersonEntity>(
+const PersonSchema: Schema = new Schema<PersonInterface>(
     {
         uid: {
             type: String
@@ -29,5 +29,5 @@ const PersonSchema = new Schema<PersonEntity>(
     }
 )
 
-const PersonModel = model('person', PersonSchema);
+const PersonModel = model<PersonInterface>('Person', PersonSchema);
 export default PersonModel;
