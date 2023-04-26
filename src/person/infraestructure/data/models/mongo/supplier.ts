@@ -1,27 +1,26 @@
 import { Schema, model } from "mongoose";
-import { PersonInterface } from "../../../domain/interfaces/person.interface";
+import { SupplierInterface } from "../../../../domain/interfaces/supplier.interface";
 
-const PersonSchema: Schema = new Schema<PersonInterface>(
+const SupplierSchema: Schema = new Schema<SupplierInterface>(
     {
         uid: {
             type: String
         },
-        name: {
+        company: {
             type: String,
             required: true
         },
-        lastname: {
+        address: {
             type: String,
             required: true
         },
-        age: {
-            type: Number,
-            required: true
+        geo: {
+            type: String
         },
-        status: {
+        state: {
             type: Boolean,
             default: true
-        },
+        }
     },
     {
         versionKey: false,
@@ -29,5 +28,5 @@ const PersonSchema: Schema = new Schema<PersonInterface>(
     }
 )
 
-const PersonModel = model<PersonInterface>('Person', PersonSchema);
-export default PersonModel;
+const SupplierModel = model<SupplierInterface>('Supplier', SupplierSchema);
+export default SupplierModel;

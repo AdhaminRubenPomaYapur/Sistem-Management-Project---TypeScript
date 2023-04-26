@@ -1,5 +1,5 @@
-export interface CreateEntity <TEntity> {
-    postEntity(tEntity: TEntity): Promise<TEntity | undefined>;
+export interface CreateEntity <TEntity, TEntityQuery> {
+    postEntity(tEntityQuery: TEntityQuery): Promise<TEntity | undefined>;
 }
 
 export interface GetEntity <TEntityId, TEntity> {
@@ -7,8 +7,8 @@ export interface GetEntity <TEntityId, TEntity> {
     getEntityById(tEntityId: TEntityId): Promise<TEntity | undefined>
 }
 
-export interface UpdatedEntity<TEntityId, TEntity> {
-    putEntity(tEntityId: TEntityId, tEntity: TEntity): Promise<TEntity | undefined>;
+export interface UpdatedEntity<TEntityId, TEntityQuery, TEntity> {
+    putEntity(tEntityId: TEntityId, tEntityQuery: TEntityQuery): Promise<TEntity | undefined>;
 }
 
 export interface DeleteEntity<TEntityId> {

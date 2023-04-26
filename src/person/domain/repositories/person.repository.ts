@@ -1,14 +1,7 @@
-import { 
-    CreateEntity, 
-    DeleteEntity, 
-    GetEntity, 
-    UpdatedEntity 
-} from '../interfaces/crud-methods.interface';
-import { ViewPerson, PersonInterface, RegisterPerson } from '../interfaces/person.interface';
+import { DeleteEntity, GetEntity, UpdatedEntity } from '../interfaces/crud-methods.interface';
 
-export interface RepositoryPerson<TEntityId, TEntity> extends 
+export interface PersonRepository<TEntityId, TEntityQuery, TEntity> extends 
     GetEntity     <TEntityId, TEntity>,
-    CreateEntity  <TEntity>,
-    UpdatedEntity <TEntityId, TEntity>,
+    UpdatedEntity <TEntityId, TEntityQuery, TEntity>,
     DeleteEntity  <TEntityId>
 {}

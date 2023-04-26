@@ -1,7 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import { routerPerson } from '../person/infraestructure/routes/person';
 import dbInitMongo from '../config/mongodb';
+
+import { masterRoute } from '../person/infraestructure/api/routes/master.route';
+import { personRoute } from '../person/infraestructure/api/routes/person.route';
+import { clientRoute } from '../person/infraestructure/api/routes/client.route';
+import { supplierRoute } from '../person/infraestructure/api/routes/supplier.route';
 
 export class Server {
 
@@ -14,9 +18,10 @@ export class Server {
         this.port = Number( process.env.PORT ) || 3001;
 
         this.paths = {
+            masters   : '/api/masters',
             persons   : '/api/persons',
             clients   : '/api/clients',
-            employees : '/api/employees',
+            supplier  : '/api/suppliers',
         }
 
         this.connectionDBMongo();
@@ -35,7 +40,10 @@ export class Server {
     }
 
     routes (): void {
-        this.app.use(this.paths.persons, routerPerson);
+        this.app.use(this.paths.masters,  masterRoute);
+        this.app.use(this.paths.persons,  personRoute);
+        this.app.use(this.paths.clients,  clientRoute);
+        this.app.use(this.paths.supplier, supplierRoute)
     }
 
     listen(): void {

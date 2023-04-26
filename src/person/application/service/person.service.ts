@@ -1,30 +1,27 @@
+import { UpdatedPerson } from "../../domain/interfaces/person.interface";
 import { Person } from "../../domain/models/person.class";
-import { RepositoryPerson } from "../../domain/repositories/person.repository";
+import { PersonRepository } from "../../domain/repositories/person.repository";
 import { InterfaceServicePerson } from "../interface/person.interface";
 
-export class ServicePerson implements InterfaceServicePerson<string, Person> {
+export class ServicePerson implements InterfaceServicePerson<string, UpdatedPerson, Person> {
 
-    constructor(private readonly repositoryPerson: RepositoryPerson<string, Person>) {}
+    constructor( private readonly personRepository: PersonRepository <string, UpdatedPerson, Person> ) {}
 
     async getListEntity(): Promise<Person[] | undefined> {
-        const persons = await this.repositoryPerson.getListEntity();
+        const persons = await this.personRepository.getListEntity();
         return persons;
     }
     async getEntityById(tEntityId: string): Promise<Person | undefined> {
-        const person = await this.repositoryPerson.getEntityById(tEntityId);
+        const person = await this.personRepository.getEntityById(tEntityId);
         return person;
     }
-    async postEntity(tEntity: Person): Promise<Person | undefined> {
-        const person = await this.repositoryPerson.postEntity(tEntity);
-        return person;
-    }
-    async putEntity(tEntityId: string, tEntity: Person): Promise<Person | undefined> {
-        const person = await this.repositoryPerson.putEntity(tEntityId, tEntity);
+    async putEntity(tEntityId: string, tEntityQuery: UpdatedPerson): Promise<Person | undefined> {
+        const person = await this.personRepository.putEntity(tEntityId, tEntityQuery);
         return person;
     }
     async deleteEntity(tEntityId: string): Promise<string | undefined> {
-        await this.repositoryPerson.deleteEntity(tEntityId);
-        return `The person is drop successful`;
+        const person = await this.personRepository.deleteEntity(tEntityId);
+        return person;
     }
-    
+
 }
